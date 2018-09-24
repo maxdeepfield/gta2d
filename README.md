@@ -15,8 +15,8 @@ todo:
 - ammo
 - medkits
 - build castles
-- trains bots ar pets
-- us pets as strategy units
+- trains bots ar pets in castles
+- use pets as strategy units
 
 tech:
 - pixi
