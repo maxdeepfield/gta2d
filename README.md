@@ -1,10 +1,10 @@
 # gta2d
 
 todo:
-ok - move
-ok - look
-ok - shoot
-ok - mmo
+- move [ok]
+- looke [ok]
+- shoot [ok]
+- mmo [ok]
 - hp
 - pvp
 - quest system
@@ -20,6 +20,6 @@ ok - mmo
 - spectate
 
 tech:
-ok - phaser
-ok - websocket
+- phaser [ok]
+- websocket [ok]
 - db ?
