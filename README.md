@@ -17,8 +17,9 @@ todo:
 - build castles
 - trains bots ar pets in castles
 - use pets as strategy units
+- spectate
 
 tech:
-- pixi
+- --pixi-- phaser
 - websocket
 - db ?
