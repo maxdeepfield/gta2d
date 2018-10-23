@@ -1,0 +1,23 @@
+{
+  "name": "gta2d",
+  "version": "2018.10.1",
+  "description": "mmo rts rpg action game",
+  "main": "server.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --experimental-modules server.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/maxdeepfield/gta2d.git"
+  },
+  "author": "maxdeepfield",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "collisions": "^2.0.13",
+    "express": "^4.16.3",
+    "node-gameloop": "^0.1.4",
+    "sat": "^0.7.1",
+    "socket.io": "^2.1.1"
+  }
+}
