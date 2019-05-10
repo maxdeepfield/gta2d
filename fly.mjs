@@ -1,4 +1,4 @@
-import Utils from './utils';
+import Utils from './utils.mjs';
 let distance =Utils.distance;
 let radians =Utils.radians;
 

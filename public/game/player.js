@@ -150,10 +150,15 @@ class Player {
     }
 
     destroy() {
+        if (this.actor)
         this.actor.destroy();
+        if (this.puha)
         this.puha.destroy();
+        if (this.mouseactor)
         this.mouseactor.destroy();
+        if (this.text)
         this.text.destroy();
+        if (this.menu)
         this.menu.destroy();
     }
 }

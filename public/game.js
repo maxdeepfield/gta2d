@@ -76,6 +76,7 @@ class Game {
                     text += row;
                     if (player_list[i][0] === that.my_player.id) {
                         that.my_player.name = player_list[i][1];
+                        if (that.ui.br)
                         that.ui.br.setText(row.split(' | ').join('\n'));
                     }
 
@@ -84,6 +85,7 @@ class Game {
                         player.setName(player_list[i][1]);
                     }
                 }
+                if (that.ui.tl)
                 that.ui.tl.setText(text);
             });
             ////////////////////////////////////////////////////////////////////////////////////////////
@@ -175,13 +177,12 @@ class Game {
         data.forEach(function (item) {
             found[item[0]] = true;
         });
-        for (let item of store) {
-            //       console.log(item);
+        store.forEach(function(item){
             if (!found[item.id]) {
-                // item.destroy();todo wtf here [12,Player] etc
+                item.destroy();
                 store.delete(item.id);
             }
-        }
+        });
         for (let i = 0; i < data.length; i++) {
             let id = data[i][0];
             let item = store.get(id);

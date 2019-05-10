@@ -5,17 +5,17 @@ import express from 'express';
 import http from 'http';
 import io from 'socket.io';
 
-import Fly from "./fly";
-import Drone from "./drone";
-import Tree from "./tree";
-import Wall from './wall';
-import Player from './player';
-import Bullet from './bullet';
-import Zavod from './zavod';
-import Floor from './floor';
+import Fly from "./fly.mjs";
+import Drone from "./drone.mjs";
+import Tree from "./tree.mjs";
+import Wall from './wall.mjs';
+import Player from './player.mjs';
+import Bullet from './bullet.mjs';
+import Zavod from './zavod.mjs';
+import Floor from './floor.mjs';
 import SAT from 'sat';
 
-import Utils from './utils';
+import Utils from './utils.mjs';
 const randomInt = Utils.randomInt;
 const randomFloat = Utils.randomFloat;
 const distance = Utils.distance;
@@ -127,8 +127,8 @@ class Game {
             let player = new Player({
                 id: ++that.players.count,
                 socket_id: socket.id,
-                x: randomInt(5000, 5500),
-                y: randomInt(5000, 5500),
+                x: randomInt(5000, 5300),
+                y: randomInt(5000, 5300),
                 vx: 0,
                 vy: 0,
                 w: 76*2,
@@ -191,7 +191,7 @@ class Game {
             player.on('destroy', function() {
                 that.drones.forEach(function (drone) {
                    if (drone.player_id === player.id) {
-                       //drone.destroy();
+                       drone.destroy();
                    }
                 });
                 that.players.delete(player.id);
@@ -422,8 +422,8 @@ class Game {
                         if (player.hp <=0) {
                             that.emitAll('boom',[player.x,player.y]);
 
-                            player.x = player.ox+randomInt(100, 500);
-                            player.y = player.oy+randomInt(100, 500);
+                            player.x = player.ox+randomInt(100, 300);
+                            player.y = player.oy+randomInt(100, 300);
                             player.hp = 100;
                             that.players.get(bullet.player_id).kills++;
                             that.emitAll('msg', player.name + ' is killed by ' + that.players.get(bullet.player_id).name);
@@ -445,8 +445,8 @@ class Game {
                         if (drone.hp <=0) {
                             that.emitAll('boom',[drone.x,drone.y]);
 
-                            drone.x = drone.ox+randomInt(100, 500);
-                            drone.y = drone.oy+randomInt(100, 500);
+                            drone.x = drone.ox+randomInt(100, 300);
+                            drone.y = drone.oy+randomInt(100, 300);
                             drone.hp = 100;
                             that.players.get(bullet.player_id).kills++;
 
@@ -456,12 +456,12 @@ class Game {
                     }
                 }
             });
-            that.walls.forEach(function (wall) {
-                if (distance(bullet.x,bullet.y,wall.x,wall.y) < 64) {
-                    bullet.destroy();
-                    that.emitAll('hit',[bullet.x,bullet.y,0]);
-                }
-            });
+            // that.walls.forEach(function (wall) { //todo!!
+            //     if (distance(bullet.x,bullet.y,wall.x,wall.y) < 64) {
+            //         bullet.destroy();
+            //         that.emitAll('hit',[bullet.x,bullet.y,0]);
+            //     }
+            // });
         });
 
         let p = [];

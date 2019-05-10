@@ -1,4 +1,4 @@
-import Utils from './utils';
+import Utils from './utils.mjs';
 let randomInt =Utils.randomInt;
 let randomFloat =Utils.randomFloat;
 let distance =Utils.distance;

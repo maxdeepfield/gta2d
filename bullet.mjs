@@ -1,4 +1,4 @@
-import Utils from './utils';
+import Utils from './utils.mjs';
 let radians =Utils.radians;
 
 import EventEmitter from 'events';
